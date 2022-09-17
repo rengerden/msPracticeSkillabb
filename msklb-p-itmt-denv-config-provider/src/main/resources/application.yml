@@ -14,7 +14,7 @@ spring:
         encrypt.enabled: false
         native:
           order: 1
-          search-locations: file:///${user.home}/config-repo         
+          searchLocations: "[classpath:/, classpath:/config, classpath:/config/{application}, classpath:/config/{application}/{profile}]"         
   profiles:
      active: git,native
   security:
