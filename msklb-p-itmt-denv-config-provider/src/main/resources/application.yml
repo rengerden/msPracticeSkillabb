@@ -1,13 +1,23 @@
 server:
   port: 8888
 spring:
+  application:
+    name: msklb-p-itmt-denv-config-provider
   cloud:
     config:
       server:
+        git:
+          order: 2
+          uri: ${CONFIG_SERVER_URI}
+          clone-on-start: true
+          default-label: develop
+        encrypt.enabled: false
         native:
-          search-locations: classpath:/shared
+          order: 1
+          search-locations: file:///${user.home}/config-repo         
   profiles:
-     active: native
+     active: git,native
   security:
     user:
-      password: ${CONFIG_SERVICE_PASSWORD}
+      name: ${CONFIG_SERVER_NAME}
+      password: ${CONFIG_SERVER_PASSWORD}
