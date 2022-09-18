@@ -1,5 +1,10 @@
-FROM  openjdk:11
-EXPOSE 8761/tcp
+FROM  openjdk:11-slim
+
+LABEL version="1.0.0"
+LABEL description="ocnfiguration server for skillabb ms practice"
+LABEL copyright="skillabb.com"
+
+EXPOSE ${DISCOVERY_SERVER_PORT}
 ARG JAR_FILE=target/*.jar
 WORKDIR /usr/local/runme
 

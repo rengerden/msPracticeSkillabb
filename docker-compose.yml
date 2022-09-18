@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  config:
+    container_name: msklb-p-itmt-denv-config-provider
+    build: 
+      context: ./msklb-p-itmt-denv-config-provider
+      args:
+        - CONFIG_SERVER_PORT:$CONFIG_SERVER_PORT   
+    networks: 
+      - skillabb-network
+    ports:
+      - "8888:8888"
+    env_file:
+      - .env
+networks:
+  skillabb-network:
+    driver: bridge
+
+
+
+  

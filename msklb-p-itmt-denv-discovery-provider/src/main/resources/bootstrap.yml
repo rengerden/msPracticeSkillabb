@@ -1,1 +1,21 @@
-
+spring:
+  application:
+    name: msklb-p-itmt-denv-discovery-provider
+  cloud:
+    config:
+      name: ${spring.application.name}
+      username: ${CONFIG_SERVER_NAME:skillabbConfigUser}
+      password: ${CONFIG_SERVER_PASSWORD:Gc25$q4Pqn@shx&Q}
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 0
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+    enable-self-preservation: false
